@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  color: white;
+  background-color: #0f1424;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  grid-template-rows: 250px 250px;
+  grid-template-areas: "personal-info . . ." "personal-info . . .";
+  -moz-column-gap: 20px;
+  column-gap: 20px;
+  row-gap: 20px;
+  align-items: stretch;
+}
+
+.card {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon {
+  position: absolute;
+  right: 5%;
+  top: -3%;
+}
+
+.activity {
+  font-weight: normal;
+}
+
+.profile {
+  grid-area: personal-info;
+  background-color: #1c1f4a;
+  border-radius: 10px;
+}
+
+.personal-info {
+  height: 70%;
+  background-color: #5847eb;
+  padding: 20px 0 0 30px;
+  border-radius: 10px;
+}
+
+.selfie {
+  display: block;
+  width: 40%;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-bottom: 40px;
+}
+
+.report {
+  color: #bdc1ff;
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.name {
+  font-weight: lighter;
+}
+
+.buttons {
+  height: 30%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  color: white;
+}
+
+.change-duration {
+  display: block;
+  color: #6f76c8;
+  font-size: 16px;
+}
+.change-duration:hover {
+  color: silver;
+}
+
+.work {
+  background-color: #ff8c66;
+}
+
+.play {
+  background-color: #56c2e6;
+}
+
+.study {
+  background-color: #ff5c7c;
+}
+
+.exercise {
+  background-color: #4acf81;
+}
+
+.social {
+  background-color: #7536d3;
+}
+
+.self-care {
+  background-color: #f1c65b;
+}
+
+.content {
+  position: absolute;
+  background-color: #1c1f4a;
+  margin-top: 20%;
+  height: 80%;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+.content:hover {
+  background-color: #424476;
+}
+
+.text-content {
+  width: 80%;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 20px 0 10px 0;
+}
+
+.hours {
+  font-size: 50px;
+  padding: 10px 0 10px 0;
+  font-weight: 300;
+}
+
+.details svg {
+  fill: #bbc0ff;
+}
+.details:hover {
+  color: white;
+}
+.details:hover svg {
+  fill: currentColor;
+}
+
+.previous-hours {
+  color: #bdc1ff;
+}
+
+.details {
+  display: block;
+}
+
+@media screen and (max-width: 1100px) {
+  .card {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 180px 180px 180px 180px;
+    grid-template-rows: 180px 180px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .activity {
+    font-size: 20px;
+  }
+
+  .hours {
+    font-size: 32px;
+    padding-top: 5px;
+  }
+
+  .previous-hours {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    align-items: flex-start;
+  }
+
+  .grid-container {
+    display: block;
+    width: 500px;
+  }
+
+  .card {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grid-item {
+    height: 200px;
+    margin: 30px 0;
+  }
+
+  .content {
+    margin-top: 50px;
+  }
+
+  .profile {
+    height: 230px;
+  }
+
+  .personal-info {
+    height: 160px;
+  }
+
+  .selfie {
+    display: inline;
+    float: left;
+    border: 3px solid white;
+    width: 25%;
+    height: auto;
+    margin: 0;
+  }
+
+  .report,
+  .name {
+    margin: 5px 0 0 30%;
+  }
+
+  .report {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+
+  .buttons {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .change-duration {
+    font-size: 24px;
+  }
+
+  .profile,
+  .personal-info,
+  .content {
+    border-radius: 20px;
+  }
+
+  .card-title {
+    padding: 30px 0 10px 0;
+  }
+
+  .activity {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hours {
+    font-size: 36px;
+  }
+
+  .previous-hours {
+    font-size: 18px;
+  }
+} /*# sourceMappingURL=main.css.map */

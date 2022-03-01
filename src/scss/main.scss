@@ -1,0 +1,337 @@
+// Goes to mixin file
+@mixin grid-item {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+}
+
+// Color Go to variables file
+// Primary
+$blue: hsl(246, 80%, 60%);
+$light-red-work: hsl(15, 100%, 70%);
+$soft-blue-play: hsl(195, 74%, 62%);
+$light-red-study: hsl(348, 100%, 68%);
+$lime-green-exercise: hsl(145, 58%, 55%);
+$violet-social: hsl(264, 64%, 52%);
+$soft-orange-selfcare: hsl(43, 84%, 65%);
+
+// Neutral
+$very-dark-blue: hsl(226, 43%, 10%);
+$dark-blue: hsl(235, 46%, 20%);
+$desaturated-blue: hsl(235, 45%, 61%);
+$pale-Blue: hsl(236, 100%, 87%);
+// --------------------------------------------
+
+// Initialize elements. Go to init file
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+// Font file
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  color: white;
+  background-color: $very-dark-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+// Goes to grid files
+.grid-container {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  grid-template-rows: 250px 250px;
+  grid-template-areas:
+    "personal-info . . ."
+    "personal-info . . .";
+  column-gap: 20px;
+  row-gap: 20px;
+  align-items: stretch;
+}
+
+.card {
+  @include grid-item();
+  position: relative;
+  overflow: hidden;
+}
+
+.icon {
+  position: absolute;
+  right: 5%;
+  top: -3%;
+}
+
+.activity {
+  font-weight: normal;
+}
+// Each card setting.
+// Profile
+.profile {
+  grid-area: personal-info;
+  background-color: $dark-blue;
+  border-radius: 10px;
+}
+
+.personal-info {
+  height: 70%;
+  background-color: $blue;
+  padding: 20px 0 0 30px;
+  border-radius: 10px;
+}
+
+.selfie {
+  display: block;
+  width: 40%;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-bottom: 40px;
+}
+
+.report {
+  color: $pale-Blue;
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.name {
+  font-weight: lighter;
+}
+
+.buttons {
+  height: 30%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  color: white;
+}
+
+.change-duration {
+  display: block;
+  color: $desaturated-blue;
+  font-size: 16px;
+  &:hover {
+    color: rgb(192, 192, 192);
+  }
+}
+
+.work {
+  background-color: $light-red-work;
+}
+
+.play {
+  background-color: $soft-blue-play;
+}
+
+.study {
+  background-color: $light-red-study;
+}
+
+.exercise {
+  background-color: $lime-green-exercise;
+}
+
+.social {
+  background-color: $violet-social;
+}
+
+.self-care {
+  background-color: $soft-orange-selfcare;
+}
+// content
+.content {
+  position: absolute;
+  background-color: $dark-blue;
+  margin-top: 20%;
+  height: 80%;
+  width: 100%;
+  border-radius: 10px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: hsl(238, 28%, 36%);
+  }
+}
+
+.text-content {
+  width: 80%;
+}
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 20px 0 10px 0;
+}
+
+.hours {
+  font-size: 50px;
+  padding: 10px 0 10px 0;
+  font-weight: 300;
+}
+
+.details {
+  svg {
+    fill: #bbc0ff;
+  }
+  &:hover {
+    color: white;
+
+    svg {
+      fill: currentColor;
+    }
+  }
+}
+
+.previous-hours {
+  color: $pale-Blue;
+}
+//Buttons inside cards
+.details {
+  display: block;
+}
+
+// responsive
+
+@media screen and (max-width: 1100px) {
+  @mixin grid-item {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  .card {
+    @include grid-item();
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 180px 180px 180px 180px;
+    grid-template-rows: 180px 180px;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .activity {
+    font-size: 20px;
+  }
+
+  .hours {
+    font-size: 32px;
+    padding-top: 5px;
+  }
+
+  .previous-hours {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    align-items: flex-start;
+  }
+  .grid-container {
+    display: block;
+    width: 500px;
+  }
+  .card {
+    @include grid-item();
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grid-item {
+    height: 200px;
+    margin: 30px 0;
+  }
+
+  .content {
+    margin-top: 50px;
+  }
+
+  .profile {
+    height: 230px;
+  }
+
+  .personal-info {
+    height: 160px;
+  }
+
+  .selfie {
+    display: inline;
+    float: left;
+    border: 3px solid white;
+    width: 25%;
+    height: auto;
+    margin: 0;
+  }
+  .report,
+  .name {
+    margin: 5px 0 0 30%;
+  }
+  .report {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+
+  .buttons {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+  .change-duration {
+    font-size: 24px;
+  }
+  .profile,
+  .personal-info,
+  .content {
+    border-radius: 20px;
+  }
+
+  // card
+  .card-title {
+    padding: 30px 0 10px 0;
+  }
+  .activity {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hours {
+    font-size: 36px;
+  }
+  .previous-hours {
+    font-size: 18px;
+  }
+}
